@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Cute Markhor Store</title>
+<meta name="description" content="Secure checkout for Cute Markhor Store. Pay via EasyPaisa, JazzCash, or Binance USDT and upload your payment screenshot to confirm your order.">
+<link rel="canonical" href="https://cutemarkhorstore.com/checkout.html">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐐</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page-loader"><div class="loader-ring"></div><span>Loading Cute Markhor Store</span></div>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#22D9B7" stroke-width="1.5"/><path d="M20 30 C13 26 12 19 15 13 C17 9 20 8 20 8 C20 8 23 9 25 13 C28 19 27 26 20 30Z" stroke="#22D9B7" stroke-width="1.6" fill="none"/><path d="M20 8 C20 8 17 9 15 13" stroke="#E8A23D" stroke-width="1.6"/><circle cx="20" cy="19" r="1.6" fill="#22D9B7"/></svg>
+      <span>Cute Markhor<br><small>Store</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+      </button>
+      <button class="nav-burger" onclick="toggleNav()" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero" style="padding-bottom:20px;">
+  <div class="container">
+    <span class="eyebrow">Secure Checkout</span>
+    <h1>Complete Your Order</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a> / Checkout</div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="checkout-grid">
+
+      <div class="checkout-form-card reveal">
+        <form id="checkoutForm" novalidate>
+          <input type="hidden" name="product_name" id="productNameField" value="ESP32 WiFi Development Module">
+          <input type="hidden" name="product_price" id="productPriceField" value="1899">
+
+          <div class="form-section-title">Your Details</div>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="full_name" class="form-control" placeholder="e.g. Ali Raza" required>
+            <div class="error-msg" id="fullNameErr"></div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="you@email.com" required>
+            <div class="error-msg" id="emailErr"></div>
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp Number</label>
+            <input type="tel" id="whatsapp" name="whatsapp" class="form-control" placeholder="03XX-XXXXXXX" required>
+            <div class="error-msg" id="whatsappErr"></div>
+          </div>
+
+          <div class="form-section-title">Payment Method</div>
+          <input type="hidden" name="payment_method" id="paymentMethod">
+          <div class="pay-methods">
+            <label class="pay-method" data-method="easypaisa">
+              <input type="radio" name="pm_radio">
+              <div class="pm-icon">📱</div><b>EasyPaisa</b>
+            </label>
+            <label class="pay-method" data-method="jazzcash">
+              <input type="radio" name="pm_radio">
+              <div class="pm-icon">💳</div><b>JazzCash</b>
+            </label>
+            <label class="pay-method" data-method="binance">
+              <input type="radio" name="pm_radio">
+              <div class="pm-icon">₿</div><b>Binance USDT</b>
+            </label>
+          </div>
+          <div class="error-msg" id="paymentMethodErr"></div>
+          <div class="pay-instructions" id="payInstructions"></div>
+
+          <div class="form-section-title">Payment Proof</div>
+          <div class="form-group">
+            <label>Upload Payment Screenshot</label>
+            <div class="upload-box" id="uploadBox">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4M12 4l-5 5M12 4l5 5"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
+              <p>Click to upload or drag & drop</p>
+              <small>JPG, PNG or WEBP — up to 5MB</small>
+            </div>
+            <input type="file" id="screenshot" name="screenshot" accept="image/png,image/jpeg,image/webp" style="display:none;">
+            <div class="upload-preview" id="uploadPreview">
+              <img src="" alt="Payment screenshot preview">
+              <span></span>
+              <button type="button" id="removeFile" aria-label="Remove file">×</button>
+            </div>
+            <div class="error-msg" id="screenshotErr"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="orderSubmitBtn" style="margin-top:10px;">Order Now</button>
+        </form>
+      </div>
+
+      <div class="order-summary reveal">
+        <h3>Order Summary</h3>
+        <div class="summary-row"><span>Product</span><b id="summaryProductName">ESP32 WiFi Development Module</b></div>
+        <div class="summary-row"><span>Price</span><b id="summaryProductPrice">PKR 1,899</b></div>
+        <div class="summary-row"><span>Delivery</span><b>2–4 business days</b></div>
+        <div class="summary-total"><span>Total</span><span id="summaryTotal">PKR 1,899</span></div>
+        <p style="font-size:12.5px; color:var(--text-faint); margin-top:20px;">Our team will verify your payment and contact you on WhatsApp to confirm delivery details.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h3>Order Confirmed!</h3>
+    <p>Thank you for your purchase. Your order for <b id="orderSummaryModal" style="color:var(--text);"></b> has been received successfully. Our team will contact you shortly on WhatsApp.</p>
+    <button class="btn btn-primary btn-block" id="closeModalBtn">Back to Home</button>
+  </div>
+</div>
+
+<button class="back-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script src="js/script.js"></script>
+</body>
+</html>

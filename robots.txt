@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /php/
+Disallow: /uploads/
+Sitemap: https://cutemarkhorstore.com/sitemap.xml

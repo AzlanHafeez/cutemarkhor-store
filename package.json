@@ -1,0 +1,10 @@
+{
+  "name": "cute-markhor-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cute Markhor Store — static frontend + Vercel serverless order/contact email backend",
+  "dependencies": {
+    "formidable": "^2.1.2",
+    "nodemailer": "^6.9.14"
+  }
+}
