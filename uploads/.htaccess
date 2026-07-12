@@ -1,0 +1,4 @@
+# Prevent execution of any script uploaded here, and block directory listing
+php_flag engine off
+AddHandler cgi-script .php .phtml .php3 .pl .py .jsp .asp .sh .cgi
+Options -ExecCGI -Indexes
